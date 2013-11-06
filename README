@@ -1,0 +1,65 @@
+QueryWatcher
+
+Version 1.4
+October 10, 2004
+
+INTRODUCTION
+
+This is a tiny little GUI application that monitors any regular Tracker queries and displays miniature indicator lights for the presence of results.  Its not much use on its own, but it is handy as a desktop replicant.
+
+INSTALLATION
+
+Prior to running the application, you should set up any queries you want to monitor via the usual way (Alt-F) in Tracker.  It helps to make certain they're not temporary queries, otherwise, their files will eventually disappear.
+
+Create the folder "/boot/home/config/settings/Nerd Herd Software/QueryWatcher".  Under this directory, create both "Queries" and "Ignore".  Move your query files to the "Queries" directory (from /boot/home/queries), or create symlinks appropriately - these files will be used as the basis for what QW will show in the queries window.  Any matches found in the queries in the "results" folder should not affect the indicator lights, however, note that this won't change the results in Tracker (when you click to view the contents of that query).
+
+After that, there's nothing special: run QueryWatcher, turn on "Show Replicants" in the Deskbar, and plant it in your desktop in some appropriate place.  Note that it matches its color to your desktop background color, but this will lay over the top of any desktop images you have, so try to pick a corner not inhabited by any non-transparent portion of your background image.
+
+Source code is included in the "src.zip" file.
+
+USAGE
+
+Once you have QueryWatcher planted in your desktop, it should show either a red square for a query without any matching results, or a green square if something matches the query's criteria.  Left-clicking a query opens the results window in Tracker, and right clicking will allow you to do the same, plus reset the query.  This re-runs the query, in case it thinks there are results that don't exist (this sometimes happens if you run it for a long time).
+
+If you want to move or remove QueryWatcher, select "Show Replicants" from the Deskbar menu again, and right click or drag the replicant handle.
+
+LICENSE
+
+Rights to do whatever you please with this software are fully granted to everybody.
+
+CREDITS / CREEPY COINCIDENCE
+
+Michael Armida
+Mikael Eiman
+Michael Davidson
+
+HISTORY
+
+Version 1.4 - Oct 10, 2004
+- Incorporated code from both Mikael Eiman and Michael Davidson; muchas gracias to both of them for the contribution!
+- Now respects volume attributes of the query you're linking.  Courtesy of M. Davidson.
+- Now includes an "Ignore" feature, allowing you to filter unwanted results.  Courtesy of M. Davidson.
+- Previously had a count of the number of matches in the box, but that seems to have not survived the most current merge (along with all my GUI code!).  Thanks and apologies to M. Eiman.
+- Added Eddie worksheet, courtesy of M. Davidson. 
+- Added makefile (Davidson / Eiman).
+
+Version 1.3 - May 31, 2003
+- Will it never end?  Fixed another bug involving duplicate query notifications.
+
+Version 1.2 - May 29, 2003
+- Fixed yet another invalidation bug.
+
+Version 1.1 - May 28, 2003
+- Fixed invalidation bug that caused lights to appear to not update correctly.
+- Added better window sizing based on length of query file names.
+
+Version 1.0 - May 23, 2003
+- Initial release.
+
+CONTACT
+
+Send comments, bugs, or requests to Michael Armida at:
+
+info at nerdherdsoftware dot com
+
+If you enjoy this little program, or think it has potential to be really useful, or even just like the concept of it and think it just needs to have a less kludgey interface that doesn't require external query editing, please, please, leave a comment in the TalkBack log at BeBits!  Without this, I don't know what sort of reception this software is receiving.

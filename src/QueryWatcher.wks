@@ -1,0 +1,9 @@
+# @Eddie Workset@
+AddWorkset "QueryWatcher.wks" "/Applications/Code/QueryWatcher/src/QueryWatcher.wks"
+AddFileGroup "Source" "/Applications/Code/QueryWatcher/src"
+AddFile "App.cpp" "/Applications/Code/QueryWatcher/src/App.cpp"
+AddFile "App.h" "/Applications/Code/QueryWatcher/src/App.h"
+EndFileGroup "Source"
+AddFileGroup "Misc" -nomake
+AddFile "makefile" "/Applications/Code/QueryWatcher/src/makefile"
+EndFileGroup "Misc"
