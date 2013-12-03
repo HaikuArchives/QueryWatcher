@@ -41,7 +41,7 @@ const char *kTrackerQueryVolume = "_trk/qryvol1";
 #include <be/kernel/fs_info.h>
 
 // Yes, globals are bad. But, sssh!
-typedef list<entry_ref> reflist;
+typedef std::list<entry_ref> reflist;
 reflist gIgnoreList;
 BPath gSettingsPath;
 
@@ -57,7 +57,7 @@ struct query_load_info
 	BRect 			rect;	
 };
 
-typedef list<BVolume> vollist;
+typedef std::list<BVolume> vollist;
 
 char *ReadAttribute(BNode node, const char *attribute, int32 *length = NULL) {
 	attr_info info;
@@ -583,7 +583,7 @@ QueryView::ShouldIgnore( BMessage * msg )
 				ref.node = node;
 				ref.device = device;
 				
-				list<node_ref>::iterator iter;
+				std::list<node_ref>::iterator iter;
 				iter = find(fIgnoredMatches.begin(), fIgnoredMatches.end(), ref);
 				
 				if ( iter == fIgnoredMatches.end() )
@@ -601,7 +601,7 @@ QueryView::ShouldIgnore( BMessage * msg )
 		if ( !result )
 		{
 			// remove node from ignore list if present
-			list<node_ref>::iterator iter;
+			std::list<node_ref>::iterator iter;
 			
 			node_ref ref;
 			ref.node = node;
@@ -619,7 +619,7 @@ QueryView::ShouldIgnore( BMessage * msg )
 	if ( opcode == B_ENTRY_REMOVED )
 	{
 		// remove from fIgnoredMatches if there
-		list<node_ref>::iterator iter;
+		std::list<node_ref>::iterator iter;
 		
 		node_ref ref;
 		ref.node = node;
@@ -653,7 +653,7 @@ QueryView::MessageReceived(BMessage* msg)
 				msg->FindInt32("device",&node.device);
 				msg->FindInt64("node",&node.node);
 				
-				list<node_ref>::iterator iter;
+				std::list<node_ref>::iterator iter;
 				
 				iter = find(fIgnoredMatches.begin(),fIgnoredMatches.end(),node);
 				

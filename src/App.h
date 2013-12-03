@@ -28,7 +28,7 @@ class LabelView;
 class ColorView;
 
 // slaad
-typedef list<BQuery *> querylist;
+typedef std::list<BQuery *> querylist;
 
 class App : public BApplication
 {
@@ -104,7 +104,7 @@ private:
 	BString			fPredicate;
 	
 	// eiman
-	list<node_ref>	fIgnoredMatches;
+	std::list<node_ref>	fIgnoredMatches;
 };
 
 IMPEXP class LabelView : public BStringView
