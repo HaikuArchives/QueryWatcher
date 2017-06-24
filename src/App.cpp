@@ -99,13 +99,21 @@ status_t ExtractQueryVolumes(BNode *node, vollist *volumes) {
 //		OpenTracker, that's it!
 			
 		time_t created;
+		int64 created64;
+		int32 created32;
 		off_t capacity;
 		
-		for (int32 index = 0; msg.FindInt32("creationDate", index, &created) == B_OK;
+		for (int32 index = 0; msg.FindInt64("capacity", index, &capacity) == B_OK;
 			index++) {
-			
-			if ((msg.FindInt32("creationDate", index, &created) != B_OK)
-				|| (msg.FindInt64("capacity", index, &capacity) != B_OK))
+
+			if (msg.FindInt64("creationDate", index, &created64) != B_OK) {
+				if (msg.FindInt32("creationDate", index, &created32) != B_OK)
+					return B_ERROR;
+				created = created32;
+			} else
+				created = created64;
+
+			if (msg.FindInt64("capacity", index, &capacity) != B_OK)
 				return B_ERROR;
 		
 			BVolume volume;
